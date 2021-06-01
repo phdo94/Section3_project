@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block alert %}
+{% if alert_msg %}
+<div class="alert alert-{{ alert_msg.type }}" role="alert">
+  {{ alert_msg.msg }}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block title %}
+Student information
+{% endblock %}
+
+{% block lead %}
+학생들의 정보를 입력하는 페이지입니다.
+{% endblock %}
+{% block main_body %}
+<form method="POST" action="/upload", enctype="multipart/form-data">
+  <div>
+    <label for="file">CSV 파일을 넣어주세요:</label>
+    
+    <input type="file" id="file" name="file" accept=".csv"/>
+    <input type = "submit"/>
+  </div>
+</form>
+<!--{% if user_list %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Username</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in user_list %}
+    <tr>
+      <th scope="row">{{ student.id }}</th>
+      <td>{{ student.class_name }}</td>
+      <td>{{ student.gender }}</td>
+      <td>{{ student.pretest }}</td>
+      <td>
+        <a class="btn btn-secondary", href='/api/user/{{ student.id }}'>
+          Delete
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> -->
+{% endif %}
+
+{% endblock %}
