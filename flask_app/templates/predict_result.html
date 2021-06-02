@@ -1,37 +1,27 @@
 {% extends 'base.html' %}
 
 {% block title  %}
-Compare User
+점수 예측
 {% endblock  %}
 
 {% block lead  %}
-To compare press the button
+점수 예측을 원하는 학생을 선택하고 확인을 누르세요!
 {% endblock  %}
 
 {% block main_body  %}
 <form method="POST" action="/compare">
   <div class="form-group">
-    <label for="exampleFormControlSelect1">User 1</label>
-    <select name="user_1" class="form-control" id="exampleFormControlSelect1">
-      {% for user in users %}
-      <option value={{user.id}}>{{user.username}}</option>
+    <label for="exampleFormControlSelect1">Student</label>
+    <select name="Student" class="form-control" id="exampleFormControlSelect1">
+      {% for student in students %}
+      <option value={{student.index}}>{{student.pretest}}</option>
       {% endfor %}
     </select>
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">User 2</label>
-    <select name="user_2" class="form-control" id="exampleFormControlSelect1">
-      {% for user in users %}
-      <option value={{user.id}}>{{user.username}}</option>
-      {% endfor %}
-    </select>
-  </div>
-  <label>Text to compare</label>
-  <input name="compare_text" style="margin-bottom:10px" class="form-control" type="text" />
-  <input type="submit" class="btn btn-primary" value="Compare" />
+  <input type="submit" class="btn btn-primary" value="확인" />
 </form>
 
 {% if prediction %}
-<p>Person likely to say '{{prediction.compare_text}}' is '{{prediction.result}}'</p>
+<p>이 학생의 예상점수는 !!!{{prediction.result}}!!!</p>
 {% endif %}
 {% endblock  %}

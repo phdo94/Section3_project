@@ -24,31 +24,32 @@ Student information
     <input type = "submit"/>
   </div>
 </form>
-<!--{% if user_list %}
+{% if student_list %}
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Username</th>
+      <th scope="col">Number</th>
+      <th scope="col">Class</th>
+      <th scope="col">Gender</th>
+      <th scope="col">모의고사</th>
     </tr>
   </thead>
   <tbody>
-  {% for user in user_list %}
+  {% for student in student_list %}
     <tr>
-      <th scope="row">{{ student.id }}</th>
-      <td>{{ student.class_name }}</td>
+      <th scope="row">{{ student.index }}</th>
+      <td>{{ student.classroom }}</td>
       <td>{{ student.gender }}</td>
       <td>{{ student.pretest }}</td>
       <td>
-        <a class="btn btn-secondary", href='/api/user/{{ student.id }}'>
+        <a class="btn btn-secondary", href='/api/upload/{{ student.id }}'>
           Delete
         </a>
       </td>
     </tr>
     {% endfor %}
   </tbody>
-</table> -->
+</table>
 {% endif %}
 
 {% endblock %}
