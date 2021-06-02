@@ -12,13 +12,5 @@ class Student(db.Model):
     posttest = db.Column(db.PickleType)
     school = db.relationship('Student', backref='students', cascade="all,delete")
 
-    def __init__(self, class_name, teaching, gender, lunch, pretest, posttest):
-        self.class_name = class_name
-        self.teacing = teaching
-        self.gender = gender
-        self.lunch = lunch
-        self.pretest = pretest
-        self.posttest = posttest
-    
     def __repr__(self):
         return f"Student {self.id}"

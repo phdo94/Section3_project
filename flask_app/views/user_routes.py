@@ -10,4 +10,4 @@ def upload_file():
     f = request.files['file']
     # 저장할 경로 + 파일명
     f.save(secure_filename(f.filename))
-    return 'upload 디렉토리 -> 파일 업로드 성공!'
+    return redirect(url_for('main.upload_index', msg_code=0), code=200)
